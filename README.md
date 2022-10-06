@@ -30,3 +30,39 @@ You can see the data is extremely scattered here. However, the data is projectin
 ![image](https://user-images.githubusercontent.com/70171751/193443711-f585df2f-698f-4590-a33a-40e681f3052f.png)
 
 Similar to the hourly data, there is abnormal projections with market moving straight sideways. However the projected lows for next 100 days is 310 with highs being 390.
+
+
+# LSTM Modelling
+
+1. Download Data from yfinance
+2. Reshape the data into a 2D array
+3. Scaler transformation to ensure that data isnt skewed and prevent outliers (this was a problem in my probability modelling)
+4. Create the training and test data sets, while also setting the number of forward days
+5. Develop the LSTM module. We can really play around with this one as the number of layers, units and even the loss function can be changed. (MSE is quite optimal)
+6. Run the training data and then test with previous data to ensure module works. (1st chart)
+7. Run the last 60 days (timestep can be modified) to project the next 5 days(number of forward days can be modified)
+
+Note: Stocks are too volatile so the greater the timestep, the greater innacurracy the model will show. Hence, this model is better for short term projections.
+
+
+Daily Projection Test Data v2:
+
+![image](https://user-images.githubusercontent.com/70171751/194250725-c635cca9-670e-4ce1-95e2-2f354652204b.png)
+
+This is a comparison of SPY over a 2 month span (July to October 2022 ) where blue line is the prediction and orange is the actual
+
+Price Projection v2:
+
+![image](https://user-images.githubusercontent.com/70171751/194250539-b9bb0223-c075-4448-81c0-3c7367341a3b.png)
+
+After running a 1 day projection, this is what is being predicted for October 6th. Will compare with actual prices once the day closes.
+
+5 day Price Projection v2:
+
+![image](https://user-images.githubusercontent.com/70171751/194251894-b0e30726-4f45-4a23-af25-b47f2fa3c0de.png)
+
+This is the 5 day projection fro October 6th. Daily prices will be noted for comparison
+
+
+
+
